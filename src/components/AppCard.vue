@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="" alt="Card image cap">
+            <img class="card-img-top" :src="`https://image.tmdb.org/t/p/w500/${movieInfos.poster_path}`" >
             <div class="card-body">
                 <h5 class="card-title">{{movieInfos.title}}</h5>
                 <ul class="list-group list-group-flush">
