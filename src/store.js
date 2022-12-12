@@ -7,7 +7,11 @@ export const store = reactive ({
     apiLink:{
         movies: "search/movie",
         series: "search/tv",
-    }
+    },
+    theMovies:[],
+    myTitle:"",
+    
+
 });
 
 export function fetchMovie(){
@@ -15,12 +19,16 @@ export function fetchMovie(){
       axios.get( myApi,{
         params:{
           api_key: "1c6cb7d9e9e6fbde55731500b8758dd6",
-          query:"",
+          query: store.myTitle,
           language: 'it-IT',
+          
         }
         
       }).then((resp) => {
-        console.log(resp.data.results);
+        //console.log(resp.data.results);
+        store.theMovies = resp.data.results;
+        console.log(store.theMovies)
+
     })
 
 }
