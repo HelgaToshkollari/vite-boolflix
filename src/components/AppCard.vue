@@ -7,7 +7,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{mediaInfos.original_title}}{{mediaInfos.name}}</li>
                     <li class="list-group-item "><span v-if="flagsForLang()" :class="flagsForLang()"></span> <span v-else class="fi fi-xx">{{mediaInfos.original_language}}  </span></li>
-                    <li class="list-group-item">{{vote()}}</li>
+                    <li class="list-group-item">{{vote()}} <i v-for="star in vote()" class="fa-solid fa-star text-warning"></i></li>
                 </ul>
             </div>
             
