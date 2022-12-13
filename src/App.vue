@@ -14,7 +14,7 @@ import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 import AppCard from "./components/AppCard.vue";
 import SearchBar from "./components/SearchBar.vue"
-import { store, fetchMovie } from "./store";
+import { store, fetchMovie, fetchSeries  } from "./store";
 
 export default{
   components:{AppMain , AppHeader, SearchBar , AppCard},
@@ -31,6 +31,7 @@ export default{
       this.store.myTitle = getTitle;
 
       fetchMovie();
+      fetchSeries();
 
     }
 
