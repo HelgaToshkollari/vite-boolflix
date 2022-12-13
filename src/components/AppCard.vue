@@ -1,13 +1,13 @@
 <template lang="">
     <div>
         <div class="card" style="width: 100%;">
-            <img class="card-img-top" :src="`https://image.tmdb.org/t/p/w500/${mediaInfos.poster_path}`" >
+            <img class="card-img-top" :src="`https://image.tmdb.org/t/p/w342/${mediaInfos.poster_path}`" >
             <div class="card-body">
                 <h5 class="card-title">{{mediaInfos.title}}</h5>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{mediaInfos.original_title}}{{mediaInfos.name}}</li>
                     <li class="list-group-item "><span v-if="flagsForLang()" :class="flagsForLang()"></span> <span v-else class="fi fi-xx">{{mediaInfos.original_language}}  </span></li>
-                    <li class="list-group-item">{{mediaInfos.vote_average}}</li>
+                    <li class="list-group-item">{{vote()}}</li>
                 </ul>
             </div>
             
@@ -53,6 +53,9 @@ export default {
         } 
 
        },
+       vote(){
+        return Math.ceil(this.mediaInfos.vote_average);
+       }
        
     }
 
