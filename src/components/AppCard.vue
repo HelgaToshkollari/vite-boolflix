@@ -2,14 +2,14 @@
     <div>
         <div class="my-card" style="width: 100%;">
             <img class="card-img-top" :src="`https://image.tmdb.org/t/p/w342/${mediaInfos.poster_path}`" >
-            <div class="card-body text-white overlay p-3">
-                <h5 class="card-title ">Title : {{mediaInfos.title}}{{mediaInfos.name}}</h5>
+            <div class="card-body text-white overlay py-4 px-2">
+                <h4 class="card-title text-center my-title">{{mediaInfos.title}}{{mediaInfos.name}}</h4>
                 <ul class="">
-                    <li >Original title : {{mediaInfos.original_title}}{{mediaInfos.original_name}}</li>
-                    <li >Original language : <span v-if="flagsForLang()" :class="flagsForLang()"></span> <span v-else class="fi fi-xx">{{mediaInfos.original_language}}  </span></li>
-                    <li >   
+                    <li><h6>Original title :</h6>  {{mediaInfos.original_title}}{{mediaInfos.original_name}}</li>
+                    <li><h6>Original language :</h6><span v-if="flagsForLang()" :class="flagsForLang()"></span> <span v-else class="fi fi-xx">{{mediaInfos.original_language}}</span></li>
+                    <li>   
                         <div class="my-stars"> 
-                            <p>Vote :</p>
+                            <h6>Vote :</h6>
                             <div class="empty-star">
                                 <i v-for="star in 5" class="fa-regular fa-star text-warning "></i> 
                             </div>
@@ -18,7 +18,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>Overview : {{mediaInfos.overview}}</li>
+                    <li> <h6>Overview : </h6> {{mediaInfos.overview}}</li>
                 </ul>
             </div>
             
@@ -102,34 +102,32 @@ export default {
         left: 0;
         right: 0;
         opacity: 0;
-        background-color: #161718ab;
+        background-color: #161718da;
         overflow: auto;
 
         &::-webkit-scrollbar {
         display: none;
         }
 
-
-
         &:hover{
             opacity: 1;
         }
     }
-  
-
     ul{
-        
         list-style: none;
         padding: 0;
         
         li{
-            padding: 0 5px;
+            padding: 5px 0;
         }
     }
-   
-   
-    
-    
+
+    .my-title{
+        background-color: rgba(133, 133, 133, 0.459);
+        border: 1px solid rgb(138, 138, 138);
+        border-radius: 10px;
+        padding: 5px;
+    }
 }
   
 </style>
