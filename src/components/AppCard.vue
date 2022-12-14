@@ -1,12 +1,13 @@
 <template lang="">
     <div>
-        <div class="my-card" style="width: 100%;">
-            <img class="card-img-top" :src="`https://image.tmdb.org/t/p/w342/${mediaInfos.poster_path}`" >
+        <div class="my-card">
+            <img v-if="mediaInfos.poster_path!=null" class="card-img-top" :src="`https://image.tmdb.org/t/p/w342/${mediaInfos.poster_path}`" >
+            <img v-else  class="not-found" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png" alt="">        
             <div class="card-body text-white overlay py-4 px-2">
                 <h4 class="card-title text-center my-title">{{mediaInfos.title}}{{mediaInfos.name}}</h4>
                 <ul class="">
                     <li><h6>Original title :</h6>  {{mediaInfos.original_title}}{{mediaInfos.original_name}}</li>
-                    <li><h6>Original language :</h6><span v-if="flagsForLang()" :class="flagsForLang()"></span> <span v-else class="fi fi-xx">{{mediaInfos.original_language}}</span></li>
+                    <li><h6>Original language :</h6><span v-if="flagsForLang()" :class="flagsForLang()"></span> <span v-else class="fi fi-xx text-dark">{{mediaInfos.original_language}}</span></li>
                     <li>   
                         <div class="my-stars"> 
                             <h6>Vote :</h6>
@@ -127,6 +128,9 @@ export default {
         border: 1px solid rgb(138, 138, 138);
         border-radius: 10px;
         padding: 5px;
+    }
+    .not-found{
+      
     }
 }
   

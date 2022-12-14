@@ -11,6 +11,7 @@ export const store = reactive ({
     theMovies:[],
     theSeries:[],
     myTitle:"",
+    page: 1,
     
 
 });
@@ -22,6 +23,8 @@ export function fetchMovie(){
           api_key: "1c6cb7d9e9e6fbde55731500b8758dd6",
           query: store.myTitle,
           language: 'en-US',
+          page: store.page,
+
           
         }
         
@@ -41,6 +44,7 @@ export function fetchSeries(){
           api_key: "1c6cb7d9e9e6fbde55731500b8758dd6",
           query: store.myTitle,
           language: 'en-US',
+          page: store.page,
           
         }
         

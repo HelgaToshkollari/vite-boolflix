@@ -1,8 +1,8 @@
 <template>
   <div class="bg-dark">
-    <AppHeader></AppHeader>
+    
     <div class="container">
-      <SearchBar @inputTitle="searchTitle"></SearchBar>
+      <AppHeader @inputTitle="searchTitle"></AppHeader>
       <AppMain></AppMain>
     </div>
   </div>
@@ -13,11 +13,11 @@
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 import AppCard from "./components/AppCard.vue";
-import SearchBar from "./components/SearchBar.vue"
+import Pagination from "./components/Pagination.vue"
 import { store, fetchMovie, fetchSeries  } from "./store";
 
 export default{
-  components:{AppMain , AppHeader, SearchBar , AppCard},
+  components:{AppMain , AppHeader,  AppCard ,Pagination},
   data(){
     return{
       store,
