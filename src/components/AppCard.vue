@@ -1,13 +1,13 @@
 <template lang="">
     <div>
-        <div class="card" style="width: 100%;">
+        <div class="my-card" style="width: 100%;">
             <img class="card-img-top" :src="`https://image.tmdb.org/t/p/w342/${mediaInfos.poster_path}`" >
-            <div class="card-body">
-                <h5 class="card-title">{{mediaInfos.title}}{{mediaInfos.name}}</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{mediaInfos.original_title}}{{mediaInfos.original_name}}</li>
-                    <li class="list-group-item "><span v-if="flagsForLang()" :class="flagsForLang()"></span> <span v-else class="fi fi-xx">{{mediaInfos.original_language}}  </span></li>
-                    <li class="list-group-item ">   
+            <div class="card-body text-white overlay p-3">
+                <h5 class="card-title ">Title : {{mediaInfos.title}}{{mediaInfos.name}}</h5>
+                <ul class="">
+                    <li >Original title : {{mediaInfos.original_title}}{{mediaInfos.original_name}}</li>
+                    <li >Original language : <span v-if="flagsForLang()" :class="flagsForLang()"></span> <span v-else class="fi fi-xx">{{mediaInfos.original_language}}  </span></li>
+                    <li >   
                         <div class="my-stars"> 
                             <p>Vote :</p>
                             <div class="empty-star">
@@ -17,8 +17,8 @@
                                 <i v-for="star in vote()" class="fa-solid fa-star text-warning "></i>
                             </div>
                         </div>
-                        
                     </li>
+                    <li>Overview : {{mediaInfos.overview}}</li>
                 </ul>
             </div>
             
@@ -82,10 +82,54 @@ export default {
         position: absolute;
         bottom: 0;
         left: 3.1rem;
-        
     }
     
+};
+.my-card{
+    position: relative;
 
+    img{
+        display: block;
+        width: 100%;
+        
+    }
+    .overlay{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        background-color: #161718ab;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+        display: none;
+        }
+
+
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+  
+
+    ul{
+        
+        list-style: none;
+        padding: 0;
+        
+        li{
+            padding: 0 5px;
+        }
+    }
+   
+   
+    
+    
 }
   
 </style>
